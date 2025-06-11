@@ -159,11 +159,32 @@ document.querySelector('.b-9').addEventListener('click', t09);
 // Task 10
 // Напишите функцию, которая выполняется при клике на изображении внутри .out-8 вначале останавливает timeout для задачи 8. Затем получает src изображения на котором кликнули (добавляет bordered) и присваивает его в src изображения внутри .out-8-max. И, затем, обновляет index-8 (у вас переменная счетчик может называться иначе) до актуального состояния. Таким образом, при нажатии кнопки b-8 анимация начнется с актуального места. Для лушшего понимания - смотрите видео на сайте. Подсказка - изображение, на которое клинкули можно получить через this.
 
-function t10() {
 
+function t10(e) {
+  clearTimeout(timer08);
+
+  const target = e.target;
+
+  if (target.tagName === 'IMG') {
+    const images = document.querySelectorAll('.out-8 img');
+    const out8Max = document.querySelector('.out-8-max');
+
+    images.forEach((img, i) => {
+      img.classList.remove('bordered');
+      if (img === target) {
+        img.classList.add('bordered');
+        out8Max.src = img.src;
+        index = i;
+      }
+    });
+  }
 }
 
-document.querySelectorAll('.out-8 img').forEach(item => item.addEventListener('click', t10));
+
+document.querySelectorAll('.out-8 img').forEach(img => {
+  img.addEventListener('click', t10);
+});
+
 
 
 // Task 11
