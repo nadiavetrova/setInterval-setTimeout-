@@ -66,6 +66,7 @@ document.querySelector('.b-4').addEventListener('click', t04);
 
 
 function t05() {
+  clearTimeout(timeout_4)
 }
 
 document.querySelector('.b-5').addEventListener('click', t05);
