@@ -116,10 +116,35 @@ document.querySelector('.b-7').addEventListener('click', t07);
 // Напишите функцию, которая делает для изображений в .out-8 анимацию аналогичную той, что в задаче 6. Помимо этого, текущее изображение выводится в .out-8-max. Для большего понимания - смотрите видео на сайте. 
 
 
+let index08 = 0;
+let timer08;
+
 function t08() {
+  const out8 = document.querySelector('.out-8');
+  const childrenArr = Array.from(out8.children);
+  const out8Max = document.querySelector('.out-8-max');
+
+  // Удаляем класс у всех изображений
+  childrenArr.forEach(el => el.classList.remove('bordered'));
+
+  // Берём текущий элемент
+  const currentImage = childrenArr[index08];
+  currentImage.classList.add('bordered');
+
+  // Очищаем .out-8-max и добавляем копию текущего изображения
+  out8Max.innerHTML = ''; // очищаем блок
+  const clone = currentImage.cloneNode(true); // создаём копию
+  out8Max.appendChild(clone);
+
+  // Увеличиваем индекс
+  index08 = (index08 + 1) % childrenArr.length;
+
+  // Запускаем таймер
+  timer08 = setTimeout(t08, 2000);
 }
 
 document.querySelector('.b-8').addEventListener('click', t08);
+
 
 
 // Task 09
