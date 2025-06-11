@@ -295,8 +295,16 @@ document.querySelector('.b-14').addEventListener('click', t14);
 // Task 15
 // Напишите функцию, которая с интервалом в 1.5 секунды меняет src изображения в .out-15. Изображение dog заменяется на leaf, затем на spaceship, затем на witch и по кругу.
 const arr_15 = ['dog', 'leaf', 'spaceship', 'witch'];
+let index_15 = 0;
+let interval_15;
 
 function t15() {
+  const out15 = document.querySelector('.out-15');
+
+  interval_15 = setInterval(() => {
+    out15.src = arr_15[index_15] + '.png';
+    index_15 = (index_15 + 1) % arr_15.length;
+  }, 1500);
 }
 
 document.querySelector('.b-15').addEventListener('click', t15);
