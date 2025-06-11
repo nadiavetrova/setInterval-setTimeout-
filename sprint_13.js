@@ -212,6 +212,33 @@ document.querySelector('.b-11').addEventListener('click', () => {
 // Напишите функцию, которая с интевалом 1 секунда выводит в .out-12 текущее время в формате минуты:секунды. Т.е. например 04:35. И минуты и секунды выводятся с текущим нулем.
 
 function t12() {
+  const out12 = document.querySelector('.out-12');
+
+  function updateTime() {
+    const nowTime = new Date();
+    let min = nowTime.getMinutes();
+    let sec = nowTime.getSeconds();
+
+    if (min < 10) {
+      min = '0' + min;
+    } else {
+      min = min;
+    }
+
+    if (sec < 10) {
+      sec = '0' + sec;
+    } else {
+      sec = sec;
+    }
+
+
+    const strTime = min + ':' + sec;
+    out12.textContent = strTime;
+  }
+
+
+  updateTime();
+  setInterval(updateTime, 1000);
 }
 
 document.querySelector('.b-12').addEventListener('click', t12);
