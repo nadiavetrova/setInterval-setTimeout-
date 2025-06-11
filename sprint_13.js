@@ -250,6 +250,19 @@ document.querySelector('.b-12').addEventListener('click', t12);
 
 
 function t13() {
+  timer13 = setInterval(() => {
+    const out13 = document.querySelector('.out-13');
+    const now = new Date();
+
+    let min = 59 - now.getMinutes();
+    let sec = 59 - now.getSeconds();
+
+
+    if (min < 10) min = '0' + min;
+    if (sec < 10) sec = '0' + sec;
+
+    out13.textContent = `${min}:${sec}`;
+  }, 1000);
 }
 
 document.querySelector('.b-13').addEventListener('click', t13);
