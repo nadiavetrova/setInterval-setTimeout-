@@ -33,6 +33,11 @@ document.querySelector('.b-2').addEventListener('click', t02);
 // Напишите функцию, которая запускает timeout и через 3 секунды присваивает ul.ul-3 класс hide.
 
 function t03() {
+  const ul3 = document.querySelector('ul.ul-3');
+
+  setTimeout(() => {
+    ul3.classList.add('hide');
+  }, 3000);
 }
 
 document.querySelector('.b-3').addEventListener('click', t03);
