@@ -66,7 +66,7 @@ document.querySelector('.b-4').addEventListener('click', t04);
 
 
 function t05() {
-  clearTimeout(timeout_4)
+  clearTimeout(timeout_4);
 }
 
 document.querySelector('.b-5').addEventListener('click', t05);
@@ -77,11 +77,28 @@ document.querySelector('.b-5').addEventListener('click', t05);
 // Напишите функцию, которая работает по принципу таск 4, и с помощью таймера присваивает по очереди изображению в блоке .out-6 класс bordered (каждые 2 секунды). Для лучшего понимания - посмотрите видео на сайте. 
 
 
+let index = 0;
+let timer;
 
 function t06() {
+  const out6 = document.querySelector('.out-6');
+  const childrenArr = Array.from(out6.children);
+
+  // Удаляем класс у всех
+  childrenArr.forEach(el => el.classList.remove('bordered'));
+
+  // Добавляем класс к текущему
+  childrenArr[index].classList.add('bordered');
+
+  // Увеличиваем индекс
+  index = (index + 1) % childrenArr.length;
+
+  // Запускаем следующий шаг
+  timer = setTimeout(t06, 2000);
 }
 
 document.querySelector('.b-6').addEventListener('click', t06);
+
 
 
 
