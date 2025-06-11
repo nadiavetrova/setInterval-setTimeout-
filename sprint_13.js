@@ -5,6 +5,10 @@
 // Напишите функцию, которая с помощью timeout выводит в .out-1 строку 'done'. Время  - 10 секунд. 
 
 function t01() {
+  const out1 = document.querySelector('.out-1');
+  setTimeout(() => {
+    out1.textContent = 'done';
+  }, 10000);
 }
 
 document.querySelector('.b-1').addEventListener('click', t01);
@@ -36,11 +40,11 @@ let timeout_4;
 const arr4 = [1, 0, 0, 0];
 
 function t04() {
-    document.querySelector('.out-4').textContent = arr4.join('__');
-    arr4[index_4] = 0;
-    (index_4 + 1 >= arr4.length) ? index_4 = 0 : index_4++;
-    arr4[index_4] = 1;
-    timeout_4 = setTimeout(t04, 1000);
+  document.querySelector('.out-4').textContent = arr4.join('__');
+  arr4[index_4] = 0;
+  (index_4 + 1 >= arr4.length) ? index_4 = 0 : index_4++;
+  arr4[index_4] = 1;
+  timeout_4 = setTimeout(t04, 1000);
 }
 
 document.querySelector('.b-4').addEventListener('click', t04);
