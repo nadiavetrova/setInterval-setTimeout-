@@ -271,11 +271,25 @@ document.querySelector('.b-13').addEventListener('click', t13);
 // Task 14
 // Напишите функцию, которая с интервалом одна секунда выводит строку в .out-14 вида '100000' затем '010000' затем '001000' и так далее. Перемещение 1 циклично.
 
+let index_14 = 0;
+let interval_14;
+let arr14 = [1, 0, 0, 0, 0, 0];
+
 function t14() {
 
+  interval_14 = setInterval(() => {
+    arr14[index_14] = 0;
+
+    index_14 = (index_14 + 1) % arr14.length;
+
+    arr14[index_14] = 1;
+
+    document.querySelector('.out-14').textContent = arr14.join('');
+  }, 1000);
 }
 
 document.querySelector('.b-14').addEventListener('click', t14);
+
 
 
 // Task 15
