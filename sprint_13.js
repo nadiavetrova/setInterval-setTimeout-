@@ -190,10 +190,22 @@ document.querySelectorAll('.out-8 img').forEach(img => {
 // Task 11
 // Напишите функцию, с интервалом (setInterval) 2 секунды выводит в .out-11 числа 10, 20, 30 и т.д. После вывода числа 50 интервал нужно очищать. Числа дожны затирать предыдущие выводы.
 
+let count11 = 0;
+let interval11;
+
 function t11() {
+  const out11 = document.querySelector('.out-11');
+  count11 += 10;
+  out11.textContent = count11;
+
+  if (count11 >= 50) {
+    clearInterval(interval11);
+  }
 }
 
-document.querySelector('.b-11').addEventListener('click', t11);
+document.querySelector('.b-11').addEventListener('click', () => {
+  interval11 = setInterval(t11, 2000);
+});
 
 
 // Task 12
