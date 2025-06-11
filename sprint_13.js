@@ -93,7 +93,6 @@ function t06() {
   // Увеличиваем индекс
   index = (index + 1) % childrenArr.length;
 
-  // Запускаем следующий шаг
   timer = setTimeout(t06, 2000);
 }
 
@@ -139,7 +138,6 @@ function t08() {
   // Увеличиваем индекс
   index08 = (index08 + 1) % childrenArr.length;
 
-  // Запускаем таймер
   timer08 = setTimeout(t08, 2000);
 }
 
@@ -151,6 +149,7 @@ document.querySelector('.b-8').addEventListener('click', t08);
 // Напишите функцию, которая останавливает таймаут из задачи 8.
 
 function t09() {
+  clearTimeout(timer08)
 }
 
 document.querySelector('.b-9').addEventListener('click', t09);
