@@ -18,6 +18,12 @@ document.querySelector('.b-1').addEventListener('click', t01);
 
 
 function t02() {
+  const unixtime = Math.round(Date.now() / 1000);
+  document.querySelector('.out-21').textContent = unixtime;
+  setTimeout(() => {
+    const unixtime_02 = Math.round(Date.now() / 1000);
+    document.querySelector('.out-22').textContent = unixtime_02;
+  }, 5000);
 }
 
 document.querySelector('.b-2').addEventListener('click', t02);
