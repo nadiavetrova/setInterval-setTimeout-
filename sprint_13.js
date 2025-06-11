@@ -106,6 +106,7 @@ document.querySelector('.b-6').addEventListener('click', t06);
 // Напишите функцию, которая останавливает таймаут из задачи 6.
 
 function t07() {
+  clearTimeout(timer)
 }
 
 document.querySelector('.b-7').addEventListener('click', t07);
